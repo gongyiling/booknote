@@ -17,8 +17,8 @@ message ReqRegiste
 {
 	required Head head = 1;
 	required string user = 2;
-	required passwd = 3;
-	required verify_code = 4;
+	required string passwd = 3;
+	required string verify_code = 4;
 }
 
 message ReqUserLogin
