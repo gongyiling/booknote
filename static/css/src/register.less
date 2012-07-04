@@ -1,0 +1,79 @@
+@import "variables.less";
+@import "mixins.less";
+
+/* -------------- btn style ---------------*/
+// Core
+.btn {
+  display: inline-block;
+  .ie7-inline-block();
+  padding: 4px 10px 4px;
+  margin-bottom: 0; // For input.btn
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  *line-height: 20px;
+  color: @grayDark;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  vertical-align: middle;
+  cursor: pointer;
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight);
+  border: 1px solid @btnBorder;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-bottom-color: darken(@btnBorder, 10%);
+  .border-radius(4px);
+  .ie7-restore-left-whitespace(); // Give IE7 some love
+  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
+}
+// Hover state
+.btn:hover {
+  color: @grayDark;
+  text-decoration: none;
+  background-color: darken(@white, 10%);
+  *background-color: darken(@white, 15%); /* Buttons in IE7 don't get borders, so darken on hover */
+  background-position: 0 -15px;
+
+  // transition is only when going to hover, otherwise the background
+  // behind the gradient (there for IE<=9 fallback) gets mismatched
+  .transition(background-position .1s linear);
+}
+// Focus state for keyboard and accessibility
+.btn:focus {
+  .tab-focus();
+}
+/* ------------ style end -----------------*/
+
+/* ------------ input style --------------- */
+.input-txt {
+  width: 280px;
+  height: 35px;
+  margin: 5px 0 15px 0;
+  padding: 0 5px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  .box-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+  .transition(all 0.25s ease-in-out);
+}
+input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  .box-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+/* ------------ style end -----------------*/
+
+@font-face {
+  font-family: 'websymbols';
+  src: url('fonts/websymbols-regular-webfont.eot');
+  src: url('fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/websymbols-regular-webfont.woff') format('woff'),
+       url('fonts/websymbols-regular-webfont.ttf') format('truetype'),
+       url('fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.symbol {
+  font-family: 'websymbols';
+}
+
+form {
+  margin: 20% 0 0 30px;
+}
